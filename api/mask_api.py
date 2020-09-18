@@ -16,7 +16,7 @@ class Mask(APIView):
     # authentication_classes = (SessionAuthentication, BasicAuthentication)
     # permission_classes = [IsAuthenticated]
     def get(self, request):
-        pass
+        return Response(status=status.HTTP_200_OK)
 
     def post(self, request):
         try:
