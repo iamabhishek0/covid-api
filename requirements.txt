@@ -4,7 +4,10 @@ astunparse==1.6.3
 cachetools==4.1.1
 certifi==2020.6.20
 chardet==3.0.4
+dj-database-url==0.5.0
 Django==3.1.1
+django-cors-headers==3.5.0
+django-heroku==0.3.1
 django-rest-framework==0.1.0
 djangorestframework==3.11.1
 gast==0.3.3
@@ -21,7 +24,9 @@ numpy==1.18.5
 oauthlib==3.1.0
 opencv-python==4.4.0.42
 opt-einsum==3.3.0
+Pillow==7.2.0
 protobuf==3.13.0
+psycopg2==2.8.6
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pytz==2020.1
@@ -38,5 +43,6 @@ tensorflow-estimator==2.3.0
 termcolor==1.1.0
 urllib3==1.25.10
 Werkzeug==1.0.1
+whitenoise==5.2.0
 wrapt==1.12.1
 zipp==3.1.0

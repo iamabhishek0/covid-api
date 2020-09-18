@@ -22,19 +22,24 @@ class Mask(APIView):
     """
     # authentication_classes = (SessionAuthentication, BasicAuthentication)
     # permission_classes = [IsAuthenticated]
+    def get(self, request):
+        # print(request.data)
+        print("get Request DATA:-")
+        print(request.GET.get('img'))
+        return Response(data=True, status=status.HTTP_200_OK)
 
     def post(self, request):
-        # try:
-        has_mask = True
-        img_data = self.decodeJSON(request.data)
-        has_mask = self.check_mask(img_data)
-        return Response(data=has_mask, status=status.HTTP_200_OK)
-        # except:
-        #     return Response(data=None, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            img_data = self.decodeJSON(request.data)
+            has_mask = self.check_mask(img_data)
+            print("has_mask:-",has_mask)
+            return Response(data=has_mask, status=status.HTTP_200_OK)
+        except:
+            return Response(data=None, status=status.HTTP_400_BAD_REQUEST)
+
 
     def decodeJSON(self, data):
-        res = ''.join(random.choices(string.ascii_uppercase +
-                             string.digits, k=N))
+        res = ''.join(random.choices(string.ascii_uppercase, k=N))
 
         img_data = str(res) + ".jpg"
         print(img_data)
