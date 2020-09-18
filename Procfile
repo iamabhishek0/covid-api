@@ -1,1 +1,1 @@
-web: gunicorn sudoku.wsgi
+web: gunicorn covid_api.wsgi
