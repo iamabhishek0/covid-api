@@ -1,20 +1,14 @@
-# USAGE
-# python image_detect.py --image <path>
-
+import numpy
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 import numpy as np
-import argparse
 import cv2
 import os
 
-
 def checkmask(img_data):
-    args = {'image': img_data, 'face': 'face_detector', 'model': 'mask_detector.model', 'confidence': 0.5}
+    args = {'face': 'face_detector', 'model': 'mask_detector.model', 'confidence': 0.5}
 
-
-    print(args)
     prototxtPath = os.path.sep.join([args["face"], "deploy.prototxt"])
     weightsPath = os.path.sep.join([args["face"],
                                     "res10_300x300_ssd_iter_140000.caffemodel"])
@@ -22,8 +16,8 @@ def checkmask(img_data):
 
     model = load_model(args["model"])
 
-    image = cv2.imread(args["image"])
-    orig = image.copy()
+    image = numpy.array(img_data)
+    # orig = image.copy()
     (h, w) = image.shape[:2]
 
     blob = cv2.dnn.blobFromImage(image, 1.0, (300, 300),
@@ -57,4 +51,3 @@ def checkmask(img_data):
         return True
     else:
         return False
-
