@@ -1,1 +1,1 @@
-web: gunicorn covid_api.wsgi
+web: daphne chat.asgi
