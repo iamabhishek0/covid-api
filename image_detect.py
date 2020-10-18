@@ -26,6 +26,7 @@ def checkmask(img_data):
     net.setInput(blob)
     detections = net.forward()
 
+    output = 0
     for i in range(0, detections.shape[2]):
         confidence = detections[0, 0, i, 2]
 
@@ -44,8 +45,8 @@ def checkmask(img_data):
 
             (mask, withoutMask) = model.predict(face)[0]
 
-        # label = "Mask" if mask > withoutMask else "No Mask"
-        output = 1 if mask > withoutMask else 0
+            # label = "Mask" if mask > withoutMask else "No Mask"
+            output = 1 if mask > withoutMask else 0
 
     if output is 1:
         return True
