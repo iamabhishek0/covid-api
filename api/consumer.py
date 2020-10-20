@@ -22,14 +22,20 @@ class ChatConsumer(WebsocketConsumer):
         #
         # print(type(text_data))
         # start = time.time()
-        print("[INFO] Data Receieved :")
+        print("[INFO] Data Receieved :", text_data)
+
         self.send(text_data=json.dumps({
             'message': strtonumpy(text_data)
         }))
+        # self.send(text_data=json.dumps({
+        #     'message': "hello"
+        # }))
         # end = time.time()
         # print("total Execution Time:", end - start)
 
 
 def strtonumpy(s):
     img = Image.open(io.BytesIO(base64.b64decode(s[22:]))).convert('RGB')
+    # img = Image.open(io.BytesIO(base64.b64decode(s[22:])))
+    img.save("geeks.jpg")
     return checkmask(img)
