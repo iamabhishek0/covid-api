@@ -5,3 +5,5 @@ venv
 *.pot
 *.pyc
 __pycache__/
+cloud_sql_proxy
+dump.rdb

@@ -46,7 +46,7 @@ def checkmask(img_data):
             (mask, withoutMask) = model.predict(face)[0]
 
             # label = "Mask" if mask > withoutMask else "No Mask"
-            output = 1 if mask > withoutMask else 0
+        output = 1 if mask > withoutMask else 0
 
     if output is 1:
         return True
